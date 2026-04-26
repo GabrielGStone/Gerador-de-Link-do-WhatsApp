@@ -11,7 +11,6 @@ export const AppFooterRoot = styled.footer`
   width: 100%;
   margin: 0;
   background-color: ${colorGray10};
-  opacity: 1;
 `;
 
 export const AppFooterInner = styled.div`
@@ -20,14 +19,13 @@ export const AppFooterInner = styled.div`
   max-width: ${layoutSectionMaxWidth};
   margin: 0 auto;
   min-height: 56px;
-  margin: 0;
   padding-top: ${sizeSpacing05};
   padding-bottom: ${sizeSpacing05};
   padding-left: ${footerPaddingInline};
   padding-right: ${footerPaddingInline};
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
   gap: ${footerGap};
@@ -35,6 +33,12 @@ export const AppFooterInner = styled.div`
   font-size: 0.875rem;
   line-height: 1.35;
   color: ${colorTextBodySlate};
+
+  & > a,
+  & > span {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
 
   @media ${layoutMobileMediaMax} {
     font-size: 0.8125rem;
