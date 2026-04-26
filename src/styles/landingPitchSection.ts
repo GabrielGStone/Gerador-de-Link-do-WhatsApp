@@ -3,13 +3,19 @@ import { colorGlowCyan, colorGlowLime, colorTextFootnote, colorTextPrimary } fro
 import {
   fontFamilyDisplay,
   landingPitchTitleMarkBarHeight,
+  layoutBreakpointNote,
   layoutMobileMediaMax,
   layoutSectionPaddingInlineBalanced,
+  layoutTabletToBelowNoteMedia,
   sizeSpacing02,
   sizeSpacing09,
 } from './tokens';
 
 const landingPitchColumnGap = '120px';
+
+const landingPitchTitleWidthPc = '519px';
+/** Tablet: um pouco mais largo que o PC. */
+const landingPitchTitleWidthTablet = '592px';
 
 export const LandingPitchRoot = styled.section`
   width: 100%;
@@ -37,11 +43,9 @@ export const LandingPitchTitle = styled.h2`
   box-sizing: border-box;
   margin: 0;
   flex: 0 0 auto;
-  width: 519px;
+  width: ${landingPitchTitleWidthPc};
   padding-right: 10px;
   max-width: 100%;
-  height: auto;
-  opacity: 1;
   font-family: ${fontFamilyDisplay};
   font-weight: 700;
   font-style: normal;
@@ -50,7 +54,17 @@ export const LandingPitchTitle = styled.h2`
   letter-spacing: 0;
   color: ${colorTextPrimary};
 
+  @media ${layoutTabletToBelowNoteMedia} {
+    width: ${landingPitchTitleWidthTablet};
+  }
+
+  @media (min-width: ${layoutBreakpointNote}) {
+    width: ${landingPitchTitleWidthPc};
+  }
+
   @media ${layoutMobileMediaMax} {
+    width: 100%;
+    padding-right: 0;
     font-size: 1.75rem;
   }
 `;
