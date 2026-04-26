@@ -2,7 +2,7 @@ import type { SelectOption } from '../types';
 
 const PLACEHOLDER: SelectOption = {
   value: '',
-  label: 'Selecione o cargo',
+  label: 'Selecione',
   disabled: true,
 };
 

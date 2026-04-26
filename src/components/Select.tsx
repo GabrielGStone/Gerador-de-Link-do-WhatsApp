@@ -45,6 +45,7 @@ const SelectComponent = ({
       <StyledSelect
         id={id}
         $invalid={invalid}
+        $placeholderShown={value === ''}
         value={value}
         onChange={handleChange}
         disabled={disabled}

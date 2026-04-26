@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
+import selectChevronUrl from '../assets/select-chevron.svg';
 import { colorTextPrimary } from './colors';
-import { layoutMobileMediaMax } from './tokens';
+import { fontFamilySans, layoutMobileMediaMax } from './tokens';
+
+const selectPlaceholderColor = '#636E7C';
 
 export const formControlStackMaxWidth = 'min(32rem, 100%)';
 
@@ -69,10 +72,35 @@ export const StyledTextarea = styled.textarea<{ $invalid: boolean }>`
   min-height: 110px;
 `;
 
-export const StyledSelect = styled.select<{ $invalid: boolean }>`
+export const StyledSelect = styled.select<{ $invalid: boolean; $placeholderShown: boolean }>`
   ${controlBase}
   cursor: pointer;
-  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  background-image: url(${selectChevronUrl});
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 9px 6px;
+  padding-right: 2.25rem;
+  font-family: ${fontFamilySans};
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0;
+  color: ${({ $placeholderShown }) => ($placeholderShown ? selectPlaceholderColor : colorTextPrimary)};
+
+  @media ${layoutMobileMediaMax} {
+    font-size: 16px;
+  }
+
+  &:disabled {
+    background: #f9fafb url(${selectChevronUrl}) no-repeat right 0.85rem center / 9px 6px;
+    color: #6b7280;
+    cursor: not-allowed;
+  }
 `;
 
 export const FieldError = styled.p`
