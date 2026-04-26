@@ -1,0 +1,10 @@
+{
+  "short_name": "WhatsApp Link",
+  "name": "Gerador de Link do WhatsApp",
+  "description": "Gere links wa.me para abrir conversas no WhatsApp com mensagem opcional.",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#128c7e",
+  "background_color": "#f0f2f5"
+}
