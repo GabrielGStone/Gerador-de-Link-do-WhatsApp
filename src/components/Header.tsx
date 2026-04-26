@@ -3,6 +3,7 @@ import { rdStationBrandImage } from '../assets';
 import { colorTextPrimary } from '../styles/colors';
 import {
   fontFamilyDisplay,
+  formPagePaddingInline,
   layoutMobileMediaMax,
   layoutSectionMaxWidth,
   spacingSize80,
@@ -32,6 +33,14 @@ const HeaderInner = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1.5rem;
+
+  @media ${layoutMobileMediaMax} {
+    padding-left: ${formPagePaddingInline};
+    padding-right: ${formPagePaddingInline};
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
 `;
 
 const RdStationLogo = styled.img`
@@ -47,6 +56,10 @@ const ProductTitleGroup = styled.div`
   align-items: center;
   justify-content: flex-end;
   min-width: 0;
+
+  @media ${layoutMobileMediaMax} {
+    display: none;
+  }
 `;
 
 const ProductTitle = styled.h1`
@@ -59,10 +72,6 @@ const ProductTitle = styled.h1`
   letter-spacing: 0;
   color: ${colorTextPrimary};
   text-align: right;
-
-  @media ${layoutMobileMediaMax} {
-    font-size: 1.125rem;
-  }
 `;
 
 export const Header = () => (
